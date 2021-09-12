@@ -29,6 +29,7 @@ public class WebSteps {
     public void pressEnter(){
         WebLibrary.pressEnter();
     }
+    
     @Given("Click result number {}")
     public void clickNTh(int Gülben){
         WebLibrary.clickNthResult(Gülben);
