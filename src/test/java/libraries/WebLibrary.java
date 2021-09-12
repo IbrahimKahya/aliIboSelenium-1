@@ -1,9 +1,6 @@
 package libraries;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
@@ -35,11 +32,32 @@ public class WebLibrary {
     }
 
     public static void clickNthResult(int gülbeninci){
-        List<WebElement> resultList = driver.findElements(By.cssSelector("[class='g']"));
-        for (WebElement result:resultList) {
+        List<WebElement> resultList = driver.findElements(By.cssSelector("[class='g'] a h3"));
 
-            System.out.println(result.getText());
+        System.out.println(resultList.get(gülbeninci).getText());
 
-        }
+        centerElement(resultList.get(gülbeninci)).click();
+
+    }
+
+    public static WebElement centerElement(WebElement element){
+
+        String scrollElementIntoMiddle = "var viewPortHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);"
+                + "var elementTop = arguments[0].getBoundingClientRect().top;"
+                + "window.scrollBy(0, elementTop-(viewPortHeight/2));";
+
+        ((JavascriptExecutor) driver).executeScript(scrollElementIntoMiddle, element);
+        return element;
+    }
+
+    public static void clickPlayButton(){
+
+        WebElement playButton = driver.findElement(By.cssSelector("[aria-label=\"Oynat\"]"));
+
+        playButton.click();
+
+
+
+
     }
 }
