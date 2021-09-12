@@ -35,4 +35,9 @@ public class WebSteps {
         WebLibrary.clickNthResult(Gülben);
     }
 
+    @Given("Click play button")
+    public void clickPlayButton(){
+        WebLibrary.clickPlayButton();
+    }
+
 }
