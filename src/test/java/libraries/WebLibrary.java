@@ -9,6 +9,7 @@ import java.util.List;
 public class WebLibrary {
 
     public static WebDriver driver;
+    private static CharSequence text;
 
     public static void setup(){
         ChromeOptions chromeOptions = new ChromeOptions();
@@ -56,8 +57,70 @@ public class WebLibrary {
 
         playButton.click();
 
+    }
 
+    public static void clickFullScreen(){
+
+        WebElement clickFullScreen = driver.findElement(By.cssSelector("[aria-label=\"Full screen (f)\"]"));
+
+        clickFullScreen.click();
+
+    }
+    public static void performTrendyolSearch(String text){
+        WebElement searchBar = driver.findElement(By.cssSelector("input[class=\"search-box\"]"));
+        searchBar.sendKeys(text);}
+
+    public static void popupSecme(){
+        WebElement closeButton = driver.findElement(By.cssSelector("[title=\"Kapat\"]"));
+        closeButton.click();
+    }
+
+    public static void searchButton(){
+
+        WebElement playButton = driver.findElement(By.cssSelector("input[class=\"search-box\"]"));
+
+        playButton.sendKeys(Keys.ENTER);
+
+    }
+
+    public static void pressImage(int number) {
+        List<WebElement> resultList = driver.findElements(By.cssSelector("[class=\"p-card-wrppr\"]"));
+
+        System.out.println(resultList.get(number).getText());
+
+        centerElement(resultList.get(number)).click();
 
 
     }
+    public static void pressButton(){
+
+        WebElement playButton = driver.findElement(By.cssSelector("[class=\"add-to-basket\"]"));
+
+        playButton.sendKeys(Keys.ENTER);
+
+    }
+
+    public static void loop(){
+        List<WebElement> resultList = driver.findElements(By.cssSelector("[class=\"p-card-wrppr\"]"));
+        for (WebElement productCard:resultList) {
+            System.out.println(productCard.getText());
+
+
+                if (productCard.getText().contains("Vans")){
+                    productCard.findElement(By.cssSelector("Span")).click();
+                    return;
+                }
+
+        }
+    }
+
+    public static void clickOverlay(){
+        WebElement overlay = driver.findElement(By.cssSelector("[class=\"overlay\"]"));
+        overlay.click();
+    }
+
+
+
+
+
 }

@@ -6,4 +6,9 @@ Feature: Exploration
     * Press enter
     * Click result number 0
     * Click play button
-    * Wait for 323.3749 seconds
+    * Wait for 2 seconds
+    * Click Fullscreen
+    * Wait for 123 seconds
+
+
+    

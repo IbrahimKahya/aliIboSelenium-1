@@ -3,6 +3,7 @@ package steps;
 import io.cucumber.java.*;
 import io.cucumber.java.en.*;
 import libraries.WebLibrary;
+import org.openqa.selenium.WebElement;
 
 public class WebSteps {
 
@@ -40,4 +41,52 @@ public class WebSteps {
         WebLibrary.clickPlayButton();
     }
 
+    @Given("Click Fullscreen")
+    public void clickFullScreen(){
+        WebLibrary.clickFullScreen();
+    }
+
+    @Given("Perform a trendyol Search for {}")
+    public void performTrendyolSearch(String text){
+        WebLibrary.performTrendyolSearch(text);
+    }
+
+
+    @Given("Popup Secme")
+    public void popupSecme(){
+        WebLibrary.popupSecme();
+    }
+
+    @Given("Click search button")
+    public void searchButton(){
+        WebLibrary.searchButton();
+    }
+
+    @Given("Press Image {}")
+    public void pressImage(int number){
+        WebLibrary.pressImage(number);
+    }
+
+    @Given("Search Button")
+    public void pressSepet(){
+        WebLibrary.pressButton();
+    }
+
+    @Given("Islem")
+    public void loop(){
+        WebLibrary.loop();
+    }
+
+    @Given("Click Overlay")
+    public void overlay(){
+        WebLibrary.clickOverlay();
+    }
+    
+
+
+
+
+
 }
+
+
